@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "up+HkJtDQonTgPd7Pe1BdKAg9wtxgZEZ37A4nqhDkIT+OHH9Yyn1Ta2w/0KSxslEbadUgH/JO2iXbO8Atno7Ow==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\leandro\\Desktop\\ProyectoNuevo-master\\Entity\\Entity.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\leandro\\.nuget\\packages\\system.componentmodel.annotations\\4.7.0\\system.componentmodel.annotations.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
