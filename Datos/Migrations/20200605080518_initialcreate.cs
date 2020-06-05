@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Datos.Migrations
 {
-    public partial class inicialCreate : Migration
+    public partial class initialcreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -46,9 +46,11 @@ namespace Datos.Migrations
                 {
                     UserName = table.Column<string>(nullable: false),
                     Password = table.Column<string>(nullable: true),
-                    Estado = table.Column<string>(nullable: true),
-                    NombreCompleto = table.Column<string>(nullable: true),
-                    Telefono = table.Column<string>(nullable: true)
+                    Estado = table.Column<string>(maxLength: 13, nullable: false),
+                    NombreCompleto = table.Column<string>(maxLength: 35, nullable: false),
+                    Telefono = table.Column<string>(maxLength: 13, nullable: false),
+                    Email = table.Column<string>(maxLength: 30, nullable: false),
+                    Token = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

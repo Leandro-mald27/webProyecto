@@ -11,7 +11,7 @@ namespace SEYNEKUN.Models
         public string Password { get; set; }
         
         public string NombreCompleto { get; set; }
-        
+        public string Email { get; set; }
         public string Token { get; set; }
     }
     public class UserViewModel : UserInputModel
@@ -23,7 +23,7 @@ namespace SEYNEKUN.Models
         public UserViewModel (User user){
          UserName=user.UserName;
          Password=user.Password;
-         
+         Email=user.Email;
          NombreCompleto=user.NombreCompleto;
          Token=user.Token;
      }
