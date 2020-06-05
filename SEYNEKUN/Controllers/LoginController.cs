@@ -42,7 +42,7 @@ namespace SEYNEKUN.Controllers
         public IActionResult Login([FromBody]UserInputModel model)
         {
             var user = _userService.Validate(model.UserName, model.Password);
-            if (user == null) return BadRequest("Acceso Denegado", "Usuario y/o contraseña incorrectos");
+            if (user == null) return BadRequest("Acceso Denegado Usuario y/o contraseña incorrectos");
             var response= _jwtService.GenerateToken(user);
             return Ok(response);
         }
