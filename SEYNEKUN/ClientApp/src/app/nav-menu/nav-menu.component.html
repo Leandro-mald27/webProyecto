@@ -27,7 +27,7 @@
         [routerLinkActive]="['link-active']"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        <li class="nav-item" [routerLinkActive]="['link-active']">
+        <li class="nav-item" [routerLinkActive]="['link-active']" *ngIf="!currentUser">
           <a class="nav-link " [routerLink]="['/loggin']"
             >ACCEDER</a
           >
@@ -45,7 +45,7 @@
     <div class="container">
       <a id="SEYNEKUN" class="navbar-brand"  [routerLink]="['/']">SEYNEKUN</a>
       <a id="INICIO" class="navbar-brand "  [routerLink]="['/']">INICIO</a> 
-      <a id="CONOCENOS" class="navbar-brand"  [routerLink]="['/productorRegistro']">REGISTRAR PRODUCTORES</a>
+      <a id="CONOCENOS" class="navbar-brand"  [routerLink]="['/productorRegistro']" *ngIf="currentUser"></a>>REGISTRAR PRODUCTORES</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -70,14 +70,15 @@
         
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link " [routerLink]="['/panelaRegistro']"
-              >Registro de produccion</a
+            *ngIf="currentUser">Registro de produccion</a
             >
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
             <a class="nav-link " [routerLink]="['/panelaConsulta']"
-              >Consultar produccion</a
+            *ngIf="currentUser">Consultar produccion</a
             >
           </li>
+          
         </ul>
       </div>
     </div>

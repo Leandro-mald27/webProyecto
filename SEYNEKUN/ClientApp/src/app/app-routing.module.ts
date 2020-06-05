@@ -6,21 +6,22 @@ import { Routes, RouterModule } from '@angular/router';
 import { LogginComponent } from './loggin/loggin.component';
 import {ConocenosComponent} from './conocenos/conocenos.component';
 import{ProductorRegistroComponent} from './Productor/productor-registro/productor-registro.component';
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const routes: Routes = [
   {
     path: 'productorRegistro',
-    component: ProductorRegistroComponent
+    component: ProductorRegistroComponent,canActivate: [AuthGuardService]
     },
   {
   path: 'panelaRegistro',
-  component: PanelaRegistroComponent
+  component: PanelaRegistroComponent,canActivate: [AuthGuardService]
   },
 
   {
     path: 'panelaConsulta',
-    component: PanelaConsultaComponent
+    component: PanelaConsultaComponent,canActivate: [AuthGuardService]
   },
   {
     path: 'loggin',

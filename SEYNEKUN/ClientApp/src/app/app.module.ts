@@ -20,7 +20,8 @@ import { ConocenosComponent } from './conocenos/conocenos.component';
 import { ProductorConsultaComponent } from './Productor/productor-consulta/productor-consulta.component';
 import { ProductorRegistroComponent } from './Productor/productor-registro/productor-registro.component';
 import { ProductorService } from './services/productor.service';
-
+import { JwtInterceptorService } from "./services/jwt-interceptor.service";
+import { AuthGuardService } from "./services/auth-guard.service";
 @NgModule({
   declarations: [
     
@@ -54,7 +55,7 @@ import { ProductorService } from './services/productor.service';
     AppRoutingModule
   ],
   entryComponents:[AlertModalComponent],
-  providers: [PanelaService,ProductorService],
+  providers: [PanelaService,ProductorService,[{ provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true },],],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

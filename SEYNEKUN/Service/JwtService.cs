@@ -1,21 +1,16 @@
 using Entity;
-
 using Microsoft.Extensions.Options;
-
 using Microsoft.IdentityModel.Tokens;
-
 using System;
-
 using System.IdentityModel.Tokens.Jwt;
-
 using System.Security.Claims;
-
 using System.Text;
-
 using SEYNEKUN.Models;
-
 using SEYNEKUN.Config;
-
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Http;
+using Logica;
 namespace seynekun.Service
 {
     public class JwtService
@@ -25,7 +20,8 @@ namespace seynekun.Service
         public UserViewModel GenerateToken(User userLogIn)
         {
             // return null if user not found
-            if (userLogIn == null) return null;
+            if (userLogIn == null) 
+            return null;
             var userResponse = new UserViewModel() { NombreCompleto=userLogIn.NombreCompleto, UserName = userLogIn.UserName };
             // authentication successful so generate jwt token
             var tokenHandler = new JwtSecurityTokenHandler();
@@ -35,6 +31,8 @@ namespace seynekun.Service
                 Subject = new ClaimsIdentity(new Claim[]
                 {
                     new Claim(ClaimTypes.Name, userLogIn.UserName.ToString()),
+                    new Claim(ClaimTypes.Email, userLogIn.Email.ToString()),
+                    new Claim(ClaimTypes.MobilePhone, userLogIn.Telefono.ToString()),
                     new Claim(ClaimTypes.Role, "Rol1"),
                     new Claim(ClaimTypes.Role, "Rol2"),
                     }),

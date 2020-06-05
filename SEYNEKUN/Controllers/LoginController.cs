@@ -30,7 +30,7 @@ namespace SEYNEKUN.Controllers
                     Password="admin",
                     Estado="AC",
                     NombreCompleto="Adminitrador",
-                    Telefono="31800000000"
+                    Telefono="318000"
                 });
                     var registrosGuardados=_context.SaveChanges();
              }
@@ -42,7 +42,7 @@ namespace SEYNEKUN.Controllers
         public IActionResult Login([FromBody]UserInputModel model)
         {
             var user = _userService.Validate(model.UserName, model.Password);
-            if (user == null) return BadRequest("Username or password is incorrect");
+            if (user == null) return BadRequest("Acceso Denegado", "Usuario y/o contraseña incorrectos");
             var response= _jwtService.GenerateToken(user);
             return Ok(response);
         }
