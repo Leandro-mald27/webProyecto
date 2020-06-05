@@ -31,7 +31,7 @@ namespace SEYNEKUN.Controllers
                     Estado="AC",
                     NombreCompleto="Adminitrador",
                     Telefono="318000",
-                    Emali="leandro@gmail.com"
+                    Email="leandro@gmail.com"
                 });
                     var registrosGuardados=_context.SaveChanges();
              }
